@@ -4,23 +4,23 @@ module.exports = {
     entry: {
         'app': './assets/app/main.ts'
     },
+
     resolve: {
         extensions: ['.js', '.ts']
     },
+
     module: {
-        loaders: [
+        rules: [
             {
-                test: /\.ts$/,
-                loaders: ['awesome-typescript-loader', 'angular2-template-loader', 'angular2-router-loader']
-            },
-            {
-                test: /\html$/,
-                loader: html
+                test: /\.html$/,
+                use: [{ loader: 'html-loader' }]
             },
             {
                 test: /.css/,
-                loader: raw
-            }            
-        ]        
+                use: [{ loader: 'raw-loader' }]
+            }
+        ],
+        exprContextCritical: false
+
     }
 };
